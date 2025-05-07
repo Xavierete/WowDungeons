@@ -129,19 +129,28 @@ class DetailView extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 30),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => BossesView(
-                        title: dungeon.title,
-                        bosses: dungeon.bosses,
-                      ),
+              Center(
+                child: SizedBox(
+                  width: 200,
+                  height: 50,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => BossesView(
+                            title: dungeon.title,
+                            bosses: dungeon.bosses,
+                          ),
+                        ),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      textStyle: const TextStyle(fontSize: 18),
                     ),
-                  );
-                },
-                child: const Text('Ver Jefes'),
+                    child: const Text('Ver Jefes'),
+                  ),
+                ),
               ),
             ],
           ),
