@@ -9,79 +9,77 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final viewModel = Provider.of<DungeonViewModel>(context);
-    final dungeons = viewModel.dungeons;
+    final theme = Theme.of(context);
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('WowDungeons'),
+        title: Text(
+          'Mazmorras de Azeroth',
+          style: theme.textTheme.displayMedium,
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: GridView.builder(
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            crossAxisSpacing: 16,
-            mainAxisSpacing: 16,
-            childAspectRatio: 0.8,
-          ),
-          itemCount: dungeons.length,
-          itemBuilder: (context, index) {
-            final dungeon = dungeons[index];
-            return GestureDetector(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => DetailView(
-                      title: dungeon.title,
-                    ),
-                  ),
-                );
-              },
-              child: Container(
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Colors.blue.shade800,
-                    width: 2,
-                  ),
-                  borderRadius: BorderRadius.circular(12),
+        child: Column(
+          children: [
+            Expanded(
+              child: GridView.builder(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 16,
+                  mainAxisSpacing: 16,
+                  childAspectRatio: 1.5,
                 ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    Expanded(
-                      flex: 3,
-                      child: ClipRRect(
-                        borderRadius: const BorderRadius.vertical(
-                          top: Radius.circular(10),
+                itemCount: viewModel.dungeons.length,
+                itemBuilder: (context, index) {
+                  final dungeon = viewModel.dungeons[index];
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => DetailView(
+                            title: dungeon.title,
+                          ),
                         ),
-                        child: Image.asset(
-                          dungeon.image,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
-                    Expanded(
+                      );
+                    },
+                    child: Card(
                       child: Container(
-                        color: Colors.blue.shade100,
-                        padding: const EdgeInsets.all(8),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(12),
+                          image: DecorationImage(
+                            image: AssetImage(dungeon.image),
+                            fit: BoxFit.cover,
+                            colorFilter: ColorFilter.mode(
+                              Colors.black.withOpacity(0.4),
+                              BlendMode.darken,
+                            ),
+                          ),
+                        ),
                         child: Center(
                           child: Text(
                             dungeon.title,
                             textAlign: TextAlign.center,
-                            style: const TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
+                            style: theme.textTheme.displayMedium?.copyWith(
+                              color: theme.colorScheme.onPrimary,
+                              shadows: [
+                                Shadow(
+                                  offset: const Offset(1, 1),
+                                  blurRadius: 3.0,
+                                  color: Colors.black.withOpacity(0.5),
+                                ),
+                              ],
                             ),
                           ),
                         ),
                       ),
                     ),
-                  ],
-                ),
+                  );
+                },
               ),
-            );
-          },
+            ),
+          ],
         ),
       ),
     );

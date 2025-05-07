@@ -17,8 +17,73 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'WowDungeons',
         theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
           useMaterial3: true,
+          colorScheme: ColorScheme.dark(
+            primary: const Color(0xFFC8A165), // Dorado medieval
+            secondary: const Color(0xFF8B0000), // Rojo oscuro
+            tertiary: const Color(0xFF2F4F4F), // Verde oscuro medieval
+            background: const Color(0xFF1A1A1A), // Fondo oscuro
+            surface: const Color(0xFF2D2D2D), // Superficie oscura
+            onPrimary: Colors.black,
+            onSecondary: Colors.white,
+            onBackground: const Color(0xFFC8A165), // Texto dorado
+            onSurface: const Color(0xFFC8A165), // Texto dorado
+          ),
+          scaffoldBackgroundColor: const Color(0xFF1A1A1A),
+          appBarTheme: const AppBarTheme(
+            backgroundColor: Color(0xFF2D2D2D),
+            foregroundColor: Color(0xFFC8A165),
+            elevation: 0,
+          ),
+          cardTheme: CardTheme(
+            color: const Color(0xFF2D2D2D),
+            elevation: 4,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+              side: const BorderSide(
+                color: Color(0xFFC8A165),
+                width: 1,
+              ),
+            ),
+          ),
+          textTheme: const TextTheme(
+            displayLarge: TextStyle(
+              color: Color(0xFFC8A165),
+              fontSize: 32,
+              fontWeight: FontWeight.bold,
+              fontFamily: 'Cinzel', // Fuente medieval
+            ),
+            displayMedium: TextStyle(
+              color: Color(0xFFC8A165),
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+              fontFamily: 'Cinzel',
+            ),
+            bodyLarge: TextStyle(
+              color: Color(0xFFC8A165),
+              fontSize: 16,
+              fontFamily: 'Cinzel',
+            ),
+            bodyMedium: TextStyle(
+              color: Color(0xFFC8A165),
+              fontSize: 14,
+              fontFamily: 'Cinzel',
+            ),
+          ),
+          elevatedButtonTheme: ElevatedButtonThemeData(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: const Color(0xFF8B0000),
+              foregroundColor: const Color(0xFFC8A165),
+              elevation: 4,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8),
+                side: const BorderSide(
+                  color: Color(0xFFC8A165),
+                  width: 1,
+                ),
+              ),
+            ),
+          ),
         ),
         home: const HomeView(),
       ),

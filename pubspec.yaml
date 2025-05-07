@@ -10,6 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
   provider: ^6.1.1
+  google_fonts: ^6.1.0
 
 dev_dependencies:
   flutter_test:
@@ -21,3 +22,9 @@ flutter:
   
   assets:
     - lib/img/
+  fonts:
+    - family: Cinzel
+      fonts:
+        - asset: assets/fonts/Cinzel-Regular.ttf
+        - asset: assets/fonts/Cinzel-Bold.ttf
+          weight: 700

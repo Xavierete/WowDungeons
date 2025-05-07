@@ -14,6 +14,7 @@ class DetailView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final viewModel = Provider.of<DungeonViewModel>(context);
+    final theme = Theme.of(context);
     Dungeon dungeon;
     
     try {
@@ -21,24 +22,26 @@ class DetailView extends StatelessWidget {
     } catch (e) {
       return Scaffold(
         appBar: AppBar(
-          title: const Text('Error'),
+          title: Text(
+            'Error',
+            style: theme.textTheme.displayMedium,
+          ),
         ),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Icon(
+              Icon(
                 Icons.error_outline,
                 size: 64,
-                color: Colors.red,
+                color: theme.colorScheme.secondary,
               ),
               const SizedBox(height: 16),
               Text(
                 e.toString(),
                 textAlign: TextAlign.center,
-                style: const TextStyle(
-                  fontSize: 18,
-                  color: Colors.red,
+                style: theme.textTheme.bodyLarge?.copyWith(
+                  color: theme.colorScheme.secondary,
                 ),
               ),
               const SizedBox(height: 16),
@@ -54,7 +57,10 @@ class DetailView extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(dungeon.title),
+        title: Text(
+          dungeon.title,
+          style: theme.textTheme.displayMedium,
+        ),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -74,37 +80,32 @@ class DetailView extends StatelessWidget {
               const SizedBox(height: 20),
               Text(
                 dungeon.title,
-                style: const TextStyle(
-                  fontSize: 28,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: theme.textTheme.displayLarge,
               ),
               const SizedBox(height: 20),
               Text(
                 dungeon.description,
-                style: const TextStyle(
-                  fontSize: 18,
-                ),
+                style: theme.textTheme.bodyLarge,
               ),
               const SizedBox(height: 30),
-              const Text(
+              Text(
                 'Información de la Mazmorra',
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: theme.textTheme.displayMedium,
               ),
               const SizedBox(height: 10),
               Card(
                 margin: const EdgeInsets.symmetric(vertical: 4),
                 child: ListTile(
-                  leading: const Icon(Icons.extension, color: Colors.blue),
-                  title: const Text('Expansión'),
+                  leading: Icon(Icons.extension, color: theme.colorScheme.primary),
+                  title: Text(
+                    'Expansión',
+                    style: theme.textTheme.bodyLarge,
+                  ),
                   trailing: Text(
                     dungeon.expansion,
-                    style: const TextStyle(
+                    style: theme.textTheme.bodyLarge?.copyWith(
                       fontWeight: FontWeight.bold,
-                      color: Colors.blue,
+                      color: theme.colorScheme.primary,
                     ),
                   ),
                 ),
@@ -112,13 +113,16 @@ class DetailView extends StatelessWidget {
               Card(
                 margin: const EdgeInsets.symmetric(vertical: 4),
                 child: ListTile(
-                  leading: const Icon(Icons.star, color: Colors.blue),
-                  title: const Text('Nivel'),
+                  leading: Icon(Icons.star, color: theme.colorScheme.primary),
+                  title: Text(
+                    'Nivel',
+                    style: theme.textTheme.bodyLarge,
+                  ),
                   trailing: Text(
                     dungeon.level,
-                    style: const TextStyle(
+                    style: theme.textTheme.bodyLarge?.copyWith(
                       fontWeight: FontWeight.bold,
-                      color: Colors.blue,
+                      color: theme.colorScheme.primary,
                     ),
                   ),
                 ),
@@ -126,24 +130,24 @@ class DetailView extends StatelessWidget {
               Card(
                 margin: const EdgeInsets.symmetric(vertical: 4),
                 child: ListTile(
-                  leading: const Icon(Icons.location_on, color: Colors.blue),
-                  title: const Text('Ubicación'),
+                  leading: Icon(Icons.location_on, color: theme.colorScheme.primary),
+                  title: Text(
+                    'Ubicación',
+                    style: theme.textTheme.bodyLarge,
+                  ),
                   trailing: Text(
                     dungeon.location,
-                    style: const TextStyle(
+                    style: theme.textTheme.bodyLarge?.copyWith(
                       fontWeight: FontWeight.bold,
-                      color: Colors.blue,
+                      color: theme.colorScheme.primary,
                     ),
                   ),
                 ),
               ),
               const SizedBox(height: 30),
-              const Text(
+              Text(
                 'Jefes',
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: theme.textTheme.displayMedium,
               ),
               const SizedBox(height: 10),
               SizedBox(
@@ -160,8 +164,8 @@ class DetailView extends StatelessWidget {
                         elevation: 4,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),
-                          side: const BorderSide(
-                            color: Colors.blue,
+                          side: BorderSide(
+                            color: theme.colorScheme.primary,
                             width: 2,
                           ),
                         ),
@@ -171,7 +175,7 @@ class DetailView extends StatelessWidget {
                             Container(
                               height: 80,
                               decoration: BoxDecoration(
-                                color: Colors.grey.shade300,
+                                color: theme.colorScheme.surface,
                                 borderRadius: const BorderRadius.only(
                                   topLeft: Radius.circular(10),
                                   topRight: Radius.circular(10),
@@ -181,7 +185,7 @@ class DetailView extends StatelessWidget {
                                 child: Icon(
                                   Icons.person,
                                   size: 50,
-                                  color: Colors.grey.shade700,
+                                  color: theme.colorScheme.primary,
                                 ),
                               ),
                             ),
@@ -192,9 +196,8 @@ class DetailView extends StatelessWidget {
                                 children: [
                                   Text(
                                     boss.name,
-                                    style: const TextStyle(
+                                    style: theme.textTheme.bodyLarge?.copyWith(
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 16,
                                     ),
                                     maxLines: 1,
                                     overflow: TextOverflow.ellipsis,
@@ -202,9 +205,8 @@ class DetailView extends StatelessWidget {
                                   const SizedBox(height: 4),
                                   Text(
                                     boss.mechanics,
-                                    style: const TextStyle(
-                                      fontSize: 12,
-                                      color: Colors.grey,
+                                    style: theme.textTheme.bodyMedium?.copyWith(
+                                      color: theme.colorScheme.primary.withOpacity(0.7),
                                     ),
                                     maxLines: 2,
                                     overflow: TextOverflow.ellipsis,
