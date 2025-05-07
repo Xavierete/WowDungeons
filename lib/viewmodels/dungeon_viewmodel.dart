@@ -22,17 +22,17 @@ class DungeonViewModel extends ChangeNotifier {
         bosses: [
           Boss(
             name: 'Guardián Stilgiss',
-            image: 'boss1.jpg',
+            image: 'lib/img/bossesimg/919264-warder-stilgiss.jpg',
             mechanics: 'Ataque de fuego, Invocación de elementales'
           ),
           Boss(
             name: 'Señor del Fuego Gordoth',
-            image: 'boss2.jpg',
+            image: 'lib/img/bossesimg/762802-senor-del-fuego.jpg',
             mechanics: 'Lluvia de fuego, Explosión de lava'
           ),
           Boss(
             name: 'Capitán de la Guardia Solakar',
-            image: 'boss3.jpg',
+            image: 'lib/img/bossesimg/919264-warder-stilgiss.jpg',
             mechanics: 'Llamada de refuerzos, Escudo de fuego'
           ),
         ],
@@ -43,7 +43,7 @@ class DungeonViewModel extends ChangeNotifier {
         expansion: 'Classic',
         level: '15-25',
         location: 'Bosque de Argénteos',
-        image: 'lib/img/48208-las-mazmorras-entrance-in-stormwind.jpg',
+        image: 'lib/img/86186-cuevas-de-los-lamentos-cave-entrance-spoooky.jpg',
         bosses: [
           Boss(
             name: 'Lord Cobrahn',
@@ -262,17 +262,15 @@ class DungeonViewModel extends ChangeNotifier {
   
   Dungeon getDungeonByTitle(String title) {
     try {
-      return _dungeons.firstWhere(
+      final dungeon = _dungeons.firstWhere(
         (dungeon) => dungeon.title == title,
         orElse: () => throw Exception('Mazmorra no encontrada'),
       );
+      print('Mazmorra encontrada: ${dungeon.title} con imagen: ${dungeon.image}');
+      return dungeon;
     } catch (e) {
-      // Si no se encuentra la mazmorra, devolvemos la primera mazmorra de la lista
-      if (_dungeons.isNotEmpty) {
-        return _dungeons.first;
-      }
-      // Si no hay mazmorras, lanzamos una excepción
-      throw Exception('No hay mazmorras disponibles');
+      print('Error al buscar mazmorra: $e');
+      throw Exception('Mazmorra no encontrada: $title');
     }
   }
 } 

@@ -22,9 +22,4 @@ flutter:
   
   assets:
     - lib/img/
-  fonts:
-    - family: Cinzel
-      fonts:
-        - asset: assets/fonts/Cinzel-Regular.ttf
-        - asset: assets/fonts/Cinzel-Bold.ttf
-          weight: 700
+    - lib/img/bossesimg/

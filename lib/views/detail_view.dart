@@ -182,11 +182,32 @@ class DetailView extends StatelessWidget {
                                 ),
                               ),
                               child: Center(
-                                child: Icon(
-                                  Icons.person,
-                                  size: 50,
-                                  color: theme.colorScheme.primary,
-                                ),
+                                child: boss.image.isNotEmpty
+                                  ? ClipRRect(
+                                      borderRadius: const BorderRadius.only(
+                                        topLeft: Radius.circular(10),
+                                        topRight: Radius.circular(10),
+                                      ),
+                                      child: Image.asset(
+                                        boss.image,
+                                        width: double.infinity,
+                                        height: 80,
+                                        fit: BoxFit.cover,
+                                        errorBuilder: (context, error, stackTrace) {
+                                          print('Error cargando imagen: ${boss.image} - $error');
+                                          return Icon(
+                                            Icons.person,
+                                            size: 50,
+                                            color: theme.colorScheme.primary,
+                                          );
+                                        },
+                                      ),
+                                    )
+                                  : Icon(
+                                      Icons.person,
+                                      size: 50,
+                                      color: theme.colorScheme.primary,
+                                    ),
                               ),
                             ),
                             Padding(
