@@ -232,27 +232,27 @@ class DungeonViewModel extends ChangeNotifier {
         bosses: [
           Boss(
             name: 'Barón Osahendido',
-            image: 'boss15.jpg',
+            image: 'lib/img/bossesimg/79366-baron-osahendido.jpg',
             mechanics: 'Llamada de los muertos, Plaga mortal'
           ),
           Boss(
             name: 'Timmy el Cruel',
-            image: 'boss16.jpg',
+            image: 'lib/img/bossesimg/19000-timmy-el-cruel.jpg',
             mechanics: 'Rabia, Invocación de esqueletos'
           ),
           Boss(
             name: 'Maleki el Pálido',
-            image: 'boss17.jpg',
+            image: 'lib/img/bossesimg/67632-maleki-el-palido.jpg',
             mechanics: 'Drenar vida, Maldición de debilidad'
           ),
           Boss(
             name: 'Nerub\'enkan',
-            image: 'boss18.jpg',
+            image: 'lib/img/bossesimg/43704-nerubenkan.jpg',
             mechanics: 'Enredar, Veneno de araña'
           ),
           Boss(
             name: 'Barón Rivendare',
-            image: 'boss19.jpg',
+            image: 'lib/img/bossesimg/164325-baron-osahendido.jpg',
             mechanics: 'Golpe mortal, Invocación de esqueletos'
           ),
         ],
