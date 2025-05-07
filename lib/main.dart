@@ -132,62 +132,238 @@ class DetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Datos de ejemplo para la mazmorra
+    final Map<String, String> dungeonInfo = {
+      'Expansión': 'Shadowlands',
+      'Nivel': '50-60',
+      'Jugadores': '5',
+      'Ubicación': 'Oribos',
+      'Dificultad': 'Normal, Heroica, Mítica',
+      'Facción': 'Ambas',
+    };
+    
+    // Lista de jefes de ejemplo
+    final List<Map<String, dynamic>> bosses = [
+      {
+        'name': 'So\'leah',
+        'image': 'boss1.jpg',
+        'difficulty': 'Difícil',
+        'mechanics': 'Daño de área, Invocaciones'
+      },
+      {
+        'name': 'Hylbrande',
+        'image': 'boss2.jpg',
+        'difficulty': 'Moderado',
+        'mechanics': 'Teletransporte, Escudos'
+      },
+      {
+        'name': 'Timecap\'n Hooktail',
+        'image': 'boss3.jpg',
+        'difficulty': 'Fácil',
+        'mechanics': 'Manipulación del tiempo'
+      },
+      {
+        'name': 'Zo\'phex',
+        'image': 'boss4.jpg',
+        'difficulty': 'Moderado',
+        'mechanics': 'Trampas, Daño directo'
+      },
+      {
+        'name': 'Mailroom Mayhem',
+        'image': 'boss5.jpg',
+        'difficulty': 'Difícil',
+        'mechanics': 'Múltiples objetivos'
+      },
+    ];
+
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              title,
-              style: const TextStyle(
-                fontSize: 28,
-                fontWeight: FontWeight.bold,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                title,
+                style: const TextStyle(
+                  fontSize: 28,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-            ),
-            const SizedBox(height: 20),
-            Text(
-              description,
-              style: const TextStyle(
-                fontSize: 18,
+              const SizedBox(height: 20),
+              Text(
+                description,
+                style: const TextStyle(
+                  fontSize: 18,
+                ),
               ),
-            ),
-            const SizedBox(height: 30),
-            const Text(
-              'Jefes:',
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
+              const SizedBox(height: 30),
+              const Text(
+                'Información de la Mazmorra',
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-            ),
-            const SizedBox(height: 10),
-            Expanded(
-              child: ListView.builder(
-                itemCount: 3, // Ejemplo con 3 jefes
+              const SizedBox(height: 10),
+              // Lista vertical de información
+              ListView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: dungeonInfo.length,
                 itemBuilder: (context, index) {
+                  String key = dungeonInfo.keys.elementAt(index);
+                  String value = dungeonInfo[key]!;
                   return Card(
-                    margin: const EdgeInsets.symmetric(vertical: 8),
+                    margin: const EdgeInsets.symmetric(vertical: 4),
                     child: ListTile(
-                      leading: const Icon(Icons.psychology, size: 40),
-                      title: Text('Jefe ${index + 1}'),
-                      subtitle: Text('Dificultad: ${_getDifficulty(index)}'),
-                      trailing: const Icon(Icons.arrow_forward_ios),
+                      leading: Icon(
+                        _getIconForKey(key),
+                        color: Colors.blue.shade700,
+                      ),
+                      title: Text(key),
+                      trailing: Text(
+                        value,
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.blue.shade800,
+                        ),
+                      ),
                     ),
                   );
                 },
               ),
-            ),
-          ],
+              const SizedBox(height: 30),
+              const Text(
+                'Jefes',
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(height: 10),
+              // Lista horizontal de jefes
+              SizedBox(
+                height: 180,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: bosses.length,
+                  itemBuilder: (context, index) {
+                    return Container(
+                      width: 160,
+                      margin: const EdgeInsets.only(right: 16),
+                      child: Card(
+                        elevation: 4,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          side: BorderSide(
+                            color: _getDifficultyColor(bosses[index]['difficulty']),
+                            width: 2,
+                          ),
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Container(
+                              height: 80,
+                              decoration: BoxDecoration(
+                                color: Colors.grey.shade300,
+                                borderRadius: const BorderRadius.only(
+                                  topLeft: Radius.circular(10),
+                                  topRight: Radius.circular(10),
+                                ),
+                              ),
+                              child: Center(
+                                child: Icon(
+                                  Icons.person,
+                                  size: 50,
+                                  color: Colors.grey.shade700,
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    bosses[index]['name'],
+                                    style: const TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 16,
+                                    ),
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                  const SizedBox(height: 4),
+                                  Text(
+                                    'Dificultad: ${bosses[index]['difficulty']}',
+                                    style: TextStyle(
+                                      fontSize: 12,
+                                      color: _getDifficultyColor(bosses[index]['difficulty']),
+                                    ),
+                                  ),
+                                  const SizedBox(height: 4),
+                                  Text(
+                                    bosses[index]['mechanics'],
+                                    style: const TextStyle(
+                                      fontSize: 12,
+                                      color: Colors.grey,
+                                    ),
+                                    maxLines: 2,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
   }
   
-  String _getDifficulty(int index) {
-    List<String> difficulties = ['Fácil', 'Moderado', 'Difícil'];
-    return difficulties[index % difficulties.length];
+  // Método para obtener el icono según la clave de información
+  IconData _getIconForKey(String key) {
+    switch (key) {
+      case 'Expansión':
+        return Icons.extension;
+      case 'Nivel':
+        return Icons.trending_up;
+      case 'Jugadores':
+        return Icons.group;
+      case 'Ubicación':
+        return Icons.location_on;
+      case 'Dificultad':
+        return Icons.warning;
+      case 'Facción':
+        return Icons.flag;
+      default:
+        return Icons.info;
+    }
+  }
+  
+  // Método para obtener el color según la dificultad
+  Color _getDifficultyColor(String difficulty) {
+    switch (difficulty) {
+      case 'Fácil':
+        return Colors.green;
+      case 'Moderado':
+        return Colors.orange;
+      case 'Difícil':
+        return Colors.red;
+      default:
+        return Colors.blue;
+    }
   }
 }
