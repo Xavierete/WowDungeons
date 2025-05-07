@@ -202,22 +202,22 @@ class DungeonViewModel extends ChangeNotifier {
         bosses: [
           Boss(
             name: 'Jefe Ukorz Cabellarena',
-            image: 'boss13.jpg',
+            image: 'lib/img/bossesimg/461057-jefe-ukorz-cabellarena.jpg',
             mechanics: 'Invocación de basiliscos, Terremoto'
           ),
           Boss(
             name: 'Hidromante Velratha',
-            image: 'boss14.jpg',
+            image: 'lib/img/bossesimg/1141827-hidromantica-velratha.jpg',
             mechanics: 'Control mental, Torrente de agua'
           ),
           Boss(
             name: 'Antu\'sul',
-            image: 'boss15.jpg',
+            image: 'lib/img/bossesimg/48996-antusul.jpg',
             mechanics: 'Invocación de serpientes, Veneno'
           ),
           Boss(
             name: 'Zerillis',
-            image: 'boss16.jpg',
+            image: 'lib/img/bossesimg/293320-zerillis.jpg',
             mechanics: 'Vuelo, Llamada de murciélagos'
           ),
         ],
