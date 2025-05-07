@@ -142,22 +142,22 @@ class DungeonViewModel extends ChangeNotifier {
         bosses: [
           Boss(
             name: 'Bazil Thredd',
-            image: 'boss9.jpg',
+            image: 'lib/img/bossesimg/156342-bazil-thredd.jpg',
             mechanics: 'Golpes múltiples, Llamada a guardias'
           ),
           Boss(
             name: 'Dextren Ward',
-            image: 'boss10.jpg',
+            image: 'lib/img/bossesimg/171230-dextren-ward-dextren-ward-was-caught-selling-bodies.jpg',
             mechanics: 'Ejecutar, Desarmar'
           ),
           Boss(
             name: 'Kam Deepfury',
-            image: 'boss11.jpg',
+            image: 'lib/img/bossesimg/77757-kam-deepfury.jpg',
             mechanics: 'Golpe de escudo, Llamada de prisioneros'
           ),
           Boss(
             name: 'Bruegal Puño de Hierro',
-            image: 'boss12.jpg',
+            image: 'lib/img/bossesimg/171215-bruegal-nudoferro-bruegal-ironknuckle-the-only-rare-mob-in-the-stockades-and-he.jpg',
             mechanics: 'Golpe aturdidor, Furia'
           ),
         ],
