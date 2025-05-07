@@ -112,22 +112,22 @@ class DungeonViewModel extends ChangeNotifier {
         bosses: [
           Boss(
             name: 'Barón Sivermane',
-            image: 'boss7.jpg',
+            image: 'lib/img/bossesimg/300973-baron-ashbury.jpg',
             mechanics: 'Transformación worgen, Aullido aterrador'
           ),
           Boss(
             name: 'Comandante Springvale',
-            image: 'boss8.jpg',
+            image: 'lib/img/bossesimg/7613.jpg',
             mechanics: 'Bendición de protección, Llamada de guardias'
           ),
           Boss(
             name: 'Odo el Vigilante Ciego',
-            image: 'boss9.jpg',
+            image: 'lib/img/bossesimg/378248-odo-el-vigia-ciego-odo-the-blindwatchers-ghostly-form-in-5-3.jpg',
             mechanics: 'Golpe ciego, Aullido de guerra'
           ),
           Boss(
             name: 'Archimago Arugal',
-            image: 'boss10.jpg',
+            image: 'lib/img/bossesimg/171122-archimago-arugal-archmage-arugal-the-main-boss-of-shadowfang-keep.jpg',
             mechanics: 'Teletransporte, Maldición worgen'
           ),
         ],
