@@ -77,27 +77,27 @@ class DungeonViewModel extends ChangeNotifier {
         bosses: [
           Boss(
             name: 'Rhahk\'zor',
-            image: 'boss5.jpg',
+            image: 'lib/img/bossesimg/17586-rhahkzor.jpg',
             mechanics: 'Golpe aturdidor, Daño masivo'
           ),
           Boss(
             name: 'Sneed',
-            image: 'boss6.jpg',
+            image: 'lib/img/bossesimg/52611-trituradora-de-sneed.jpg',
             mechanics: 'Triturador mecánico, Bombas'
           ),
           Boss(
             name: 'Gilnid',
-            image: 'boss7.jpg',
+            image: 'lib/img/bossesimg/52312-gilnid.jpg',
             mechanics: 'Lanzar botella, Explosión de gas'
           ),
           Boss(
             name: 'Capitán Greenskin',
-            image: 'boss8.jpg',
+            image: 'lib/img/bossesimg/60536.jpg',
             mechanics: 'Golpe de espada, Llamada de piratas'
           ),
           Boss(
             name: 'Edwin VanCleef',
-            image: 'boss9.jpg',
+            image: 'lib/img/bossesimg/954850-vancleef.jpg',
             mechanics: 'Golpes múltiples, Defias Elite'
           ),
         ],
