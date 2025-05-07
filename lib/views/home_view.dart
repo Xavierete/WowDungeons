@@ -20,66 +20,68 @@ class HomeView extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: [
-            Expanded(
-              child: GridView.builder(
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 16,
-                  mainAxisSpacing: 16,
-                  childAspectRatio: 1.5,
-                ),
-                itemCount: viewModel.dungeons.length,
-                itemBuilder: (context, index) {
-                  final dungeon = viewModel.dungeons[index];
-                  return GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => DetailView(
-                            title: dungeon.title,
-                          ),
+        child: GridView.builder(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            crossAxisSpacing: 16,
+            mainAxisSpacing: 16,
+            childAspectRatio: 0.8,
+          ),
+          itemCount: viewModel.dungeons.length,
+          itemBuilder: (context, index) {
+            final dungeon = viewModel.dungeons[index];
+            return GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => DetailView(
+                      title: dungeon.title,
+                    ),
+                  ),
+                );
+              },
+              child: Card(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Expanded(
+                      flex: 3,
+                      child: ClipRRect(
+                        borderRadius: const BorderRadius.vertical(
+                          top: Radius.circular(10),
                         ),
-                      );
-                    },
-                    child: Card(
+                        child: Image.asset(
+                          dungeon.image,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                    Expanded(
                       child: Container(
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
-                          image: DecorationImage(
-                            image: AssetImage(dungeon.image),
-                            fit: BoxFit.cover,
-                            colorFilter: ColorFilter.mode(
-                              Colors.black.withOpacity(0.4),
-                              BlendMode.darken,
-                            ),
+                          color: theme.colorScheme.surface,
+                          borderRadius: const BorderRadius.vertical(
+                            bottom: Radius.circular(10),
                           ),
                         ),
+                        padding: const EdgeInsets.all(8),
                         child: Center(
                           child: Text(
                             dungeon.title,
                             textAlign: TextAlign.center,
-                            style: theme.textTheme.displayMedium?.copyWith(
-                              color: theme.colorScheme.onPrimary,
-                              shadows: [
-                                Shadow(
-                                  offset: const Offset(1, 1),
-                                  blurRadius: 3.0,
-                                  color: Colors.black.withOpacity(0.5),
-                                ),
-                              ],
+                            style: theme.textTheme.bodyLarge?.copyWith(
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
                         ),
                       ),
                     ),
-                  );
-                },
+                  ],
+                ),
               ),
-            ),
-          ],
+            );
+          },
         ),
       ),
     );
