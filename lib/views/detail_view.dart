@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../viewmodels/dungeon_viewmodel.dart';
+import '../models/dungeon_model.dart';
 import 'bosses_view.dart';
 
 class DetailView extends StatelessWidget {
@@ -14,7 +15,43 @@ class DetailView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final viewModel = Provider.of<DungeonViewModel>(context);
-    final dungeon = viewModel.getDungeonByTitle(title);
+    Dungeon dungeon;
+    
+    try {
+      dungeon = viewModel.getDungeonByTitle(title);
+    } catch (e) {
+      return Scaffold(
+        appBar: AppBar(
+          title: const Text('Error'),
+        ),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Icon(
+                Icons.error_outline,
+                size: 64,
+                color: Colors.red,
+              ),
+              const SizedBox(height: 16),
+              Text(
+                e.toString(),
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  fontSize: 18,
+                  color: Colors.red,
+                ),
+              ),
+              const SizedBox(height: 16),
+              ElevatedButton(
+                onPressed: () => Navigator.pop(context),
+                child: const Text('Volver'),
+              ),
+            ],
+          ),
+        ),
+      );
+    }
 
     return Scaffold(
       appBar: AppBar(

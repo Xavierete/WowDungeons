@@ -135,9 +135,18 @@ class DungeonViewModel extends ChangeNotifier {
   }
   
   Dungeon getDungeonByTitle(String title) {
-    return _dungeons.firstWhere(
-      (dungeon) => dungeon.title == title,
-      orElse: () => _dungeons[0],
-    );
+    try {
+      return _dungeons.firstWhere(
+        (dungeon) => dungeon.title == title,
+        orElse: () => throw Exception('Mazmorra no encontrada'),
+      );
+    } catch (e) {
+      // Si no se encuentra la mazmorra, devolvemos la primera mazmorra de la lista
+      if (_dungeons.isNotEmpty) {
+        return _dungeons.first;
+      }
+      // Si no hay mazmorras, lanzamos una excepción
+      throw Exception('No hay mazmorras disponibles');
+    }
   }
 } 
