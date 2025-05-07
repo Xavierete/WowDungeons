@@ -30,6 +30,11 @@ class DungeonViewModel extends ChangeNotifier {
             image: 'boss2.jpg',
             mechanics: 'Lluvia de fuego, Explosión de lava'
           ),
+          Boss(
+            name: 'Capitán de la Guardia Solakar',
+            image: 'boss3.jpg',
+            mechanics: 'Llamada de refuerzos, Escudo de fuego'
+          ),
         ],
       ),
       Dungeon(
@@ -49,6 +54,16 @@ class DungeonViewModel extends ChangeNotifier {
             name: 'Lady Anacondra',
             image: 'boss4.jpg',
             mechanics: 'Dormir, Veneno persistente'
+          ),
+          Boss(
+            name: 'Kresh',
+            image: 'boss5.jpg',
+            mechanics: 'Mordisco venenoso, Cola de escorpión'
+          ),
+          Boss(
+            name: 'Lord Pythas',
+            image: 'boss6.jpg',
+            mechanics: 'Escupir veneno, Envenenar'
           ),
         ],
       ),
@@ -70,6 +85,21 @@ class DungeonViewModel extends ChangeNotifier {
             image: 'boss6.jpg',
             mechanics: 'Triturador mecánico, Bombas'
           ),
+          Boss(
+            name: 'Gilnid',
+            image: 'boss7.jpg',
+            mechanics: 'Lanzar botella, Explosión de gas'
+          ),
+          Boss(
+            name: 'Capitán Greenskin',
+            image: 'boss8.jpg',
+            mechanics: 'Golpe de espada, Llamada de piratas'
+          ),
+          Boss(
+            name: 'Edwin VanCleef',
+            image: 'boss9.jpg',
+            mechanics: 'Golpes múltiples, Defias Elite'
+          ),
         ],
       ),
       Dungeon(
@@ -86,8 +116,18 @@ class DungeonViewModel extends ChangeNotifier {
             mechanics: 'Transformación worgen, Aullido aterrador'
           ),
           Boss(
-            name: 'Archimago Arugal',
+            name: 'Comandante Springvale',
             image: 'boss8.jpg',
+            mechanics: 'Bendición de protección, Llamada de guardias'
+          ),
+          Boss(
+            name: 'Odo el Vigilante Ciego',
+            image: 'boss9.jpg',
+            mechanics: 'Golpe ciego, Aullido de guerra'
+          ),
+          Boss(
+            name: 'Archimago Arugal',
+            image: 'boss10.jpg',
             mechanics: 'Teletransporte, Maldición worgen'
           ),
         ],
@@ -110,6 +150,16 @@ class DungeonViewModel extends ChangeNotifier {
             image: 'boss10.jpg',
             mechanics: 'Ejecutar, Desarmar'
           ),
+          Boss(
+            name: 'Kam Deepfury',
+            image: 'boss11.jpg',
+            mechanics: 'Golpe de escudo, Llamada de prisioneros'
+          ),
+          Boss(
+            name: 'Bruegal Puño de Hierro',
+            image: 'boss12.jpg',
+            mechanics: 'Golpe aturdidor, Furia'
+          ),
         ],
       ),
       Dungeon(
@@ -129,6 +179,16 @@ class DungeonViewModel extends ChangeNotifier {
             name: 'Herod el Matón',
             image: 'boss12.jpg',
             mechanics: 'Torbellino, Furia berserker'
+          ),
+          Boss(
+            name: 'Arzobispo Benedictus',
+            image: 'boss13.jpg',
+            mechanics: 'Bendición de protección, Llamada de cruzados'
+          ),
+          Boss(
+            name: 'Interrogador Vishas',
+            image: 'boss14.jpg',
+            mechanics: 'Tortura, Llamada de inquisidores'
           ),
         ],
       ),
@@ -150,6 +210,16 @@ class DungeonViewModel extends ChangeNotifier {
             image: 'boss14.jpg',
             mechanics: 'Control mental, Torrente de agua'
           ),
+          Boss(
+            name: 'Antu\'sul',
+            image: 'boss15.jpg',
+            mechanics: 'Invocación de serpientes, Veneno'
+          ),
+          Boss(
+            name: 'Zerillis',
+            image: 'boss16.jpg',
+            mechanics: 'Vuelo, Llamada de murciélagos'
+          ),
         ],
       ),
       Dungeon(
@@ -169,6 +239,21 @@ class DungeonViewModel extends ChangeNotifier {
             name: 'Timmy el Cruel',
             image: 'boss16.jpg',
             mechanics: 'Rabia, Invocación de esqueletos'
+          ),
+          Boss(
+            name: 'Maleki el Pálido',
+            image: 'boss17.jpg',
+            mechanics: 'Drenar vida, Maldición de debilidad'
+          ),
+          Boss(
+            name: 'Nerub\'enkan',
+            image: 'boss18.jpg',
+            mechanics: 'Enredar, Veneno de araña'
+          ),
+          Boss(
+            name: 'Barón Rivendare',
+            image: 'boss19.jpg',
+            mechanics: 'Golpe mortal, Invocación de esqueletos'
           ),
         ],
       ),
