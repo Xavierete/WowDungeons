@@ -47,22 +47,22 @@ class DungeonViewModel extends ChangeNotifier {
         bosses: [
           Boss(
             name: 'Lord Cobrahn',
-            image: 'boss3.jpg',
+            image: 'lib/img/bossesimg/51334-lord-cobrahn.jpg',
             mechanics: 'Veneno, Transformación serpiente'
           ),
           Boss(
             name: 'Lady Anacondra',
-            image: 'boss4.jpg',
+            image: 'lib/img/bossesimg/51331-lady-anacondra.jpg',
             mechanics: 'Dormir, Veneno persistente'
           ),
           Boss(
             name: 'Kresh',
-            image: 'boss5.jpg',
+            image: 'lib/img/bossesimg/51329-kresh.jpg',
             mechanics: 'Mordisco venenoso, Cola de escorpión'
           ),
           Boss(
             name: 'Lord Pythas',
-            image: 'boss6.jpg',
+            image: 'lib/img/bossesimg/82792-lord-pythas.jpg',
             mechanics: 'Escupir veneno, Envenenar'
           ),
         ],
