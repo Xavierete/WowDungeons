@@ -38,6 +38,7 @@ class DungeonViewModel extends ChangeNotifier {
         expansion: 'Classic',
         level: '15-25',
         location: 'Bosque de Argénteos',
+        image: 'lib/img/68555-sima-ignea.jpg',
         bosses: [
           Boss(
             name: 'Lord Cobrahn',
@@ -57,6 +58,7 @@ class DungeonViewModel extends ChangeNotifier {
         expansion: 'Classic',
         level: '18-23',
         location: 'Páramos de Poniente',
+        image: 'lib/img/68555-sima-ignea.jpg',
         bosses: [
           Boss(
             name: 'Rhahk\'zor',
@@ -76,6 +78,7 @@ class DungeonViewModel extends ChangeNotifier {
         expansion: 'Classic',
         level: '22-30',
         location: 'Bosque de Argénteos',
+        image: 'lib/img/68555-sima-ignea.jpg',
         bosses: [
           Boss(
             name: 'Barón Sivermane',
@@ -95,6 +98,7 @@ class DungeonViewModel extends ChangeNotifier {
         expansion: 'Classic',
         level: '22-30',
         location: 'Ventormenta',
+        image: 'lib/img/68555-sima-ignea.jpg',
         bosses: [
           Boss(
             name: 'Bazil Thredd',
@@ -114,6 +118,7 @@ class DungeonViewModel extends ChangeNotifier {
         expansion: 'Classic',
         level: '26-45',
         location: 'Tirisfal',
+        image: 'lib/img/68555-sima-ignea.jpg',
         bosses: [
           Boss(
             name: 'Alto Inquisidor Whitemane',
@@ -133,6 +138,7 @@ class DungeonViewModel extends ChangeNotifier {
         expansion: 'Classic',
         level: '44-54',
         location: 'Tanaris',
+        image: 'lib/img/68555-sima-ignea.jpg',
         bosses: [
           Boss(
             name: 'Jefe Ukorz Cabellarena',
@@ -152,6 +158,7 @@ class DungeonViewModel extends ChangeNotifier {
         expansion: 'Classic',
         level: '58-60',
         location: 'Tierras de la Peste del Este',
+        image: 'lib/img/68555-sima-ignea.jpg',
         bosses: [
           Boss(
             name: 'Barón Osahendido',
