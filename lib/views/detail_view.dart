@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../viewmodels/dungeon_viewmodel.dart';
-import '../models/dungeon_model.dart';
+import 'bosses_view.dart';
 
 class DetailView extends StatelessWidget {
   final String title;
@@ -49,96 +49,67 @@ class DetailView extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 10),
-              ListView.builder(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                itemCount: dungeon.info.length,
-                itemBuilder: (context, index) {
-                  String key = dungeon.info.keys.elementAt(index);
-                  String value = dungeon.info[key]!;
-                  return Card(
-                    margin: const EdgeInsets.symmetric(vertical: 4),
-                    child: ListTile(
-                      leading: Icon(
-                        _getIconForKey(key),
-                        color: Colors.blue.shade700,
-                      ),
-                      title: Text(key),
-                      trailing: Text(
-                        value,
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.blue.shade800,
-                        ),
-                      ),
+              Card(
+                margin: const EdgeInsets.symmetric(vertical: 4),
+                child: ListTile(
+                  leading: const Icon(Icons.extension, color: Colors.blue),
+                  title: const Text('Expansión'),
+                  trailing: Text(
+                    dungeon.expansion,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.blue,
                     ),
-                  );
-                },
-              ),
-              const SizedBox(height: 30),
-              const Text(
-                'Jefes',
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
-              const SizedBox(height: 10),
-              ListView.builder(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                itemCount: dungeon.bosses.length,
-                itemBuilder: (context, index) {
-                  final boss = dungeon.bosses[index];
-                  return Card(
-                    margin: const EdgeInsets.symmetric(vertical: 8),
-                    child: ListTile(
-                      title: Text(boss.name),
-                      subtitle: Text(boss.mechanics),
-                      trailing: Chip(
-                        label: Text(boss.difficulty),
-                        backgroundColor: _getDifficultyColor(boss.difficulty),
+              Card(
+                margin: const EdgeInsets.symmetric(vertical: 4),
+                child: ListTile(
+                  leading: const Icon(Icons.star, color: Colors.blue),
+                  title: const Text('Nivel'),
+                  trailing: Text(
+                    dungeon.level,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.blue,
+                    ),
+                  ),
+                ),
+              ),
+              Card(
+                margin: const EdgeInsets.symmetric(vertical: 4),
+                child: ListTile(
+                  leading: const Icon(Icons.location_on, color: Colors.blue),
+                  title: const Text('Ubicación'),
+                  trailing: Text(
+                    dungeon.location,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.blue,
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 30),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => BossesView(
+                        title: dungeon.title,
+                        bosses: dungeon.bosses,
                       ),
                     ),
                   );
                 },
+                child: const Text('Ver Jefes'),
               ),
             ],
           ),
         ),
       ),
     );
-  }
-
-  IconData _getIconForKey(String key) {
-    switch (key) {
-      case 'Expansión':
-        return Icons.extension;
-      case 'Nivel':
-        return Icons.star;
-      case 'Jugadores':
-        return Icons.group;
-      case 'Ubicación':
-        return Icons.location_on;
-      case 'Dificultad':
-        return Icons.warning;
-      case 'Facción':
-        return Icons.flag;
-      default:
-        return Icons.info;
-    }
-  }
-
-  Color _getDifficultyColor(String difficulty) {
-    switch (difficulty) {
-      case 'Fácil':
-        return Colors.green.shade100;
-      case 'Moderado':
-        return Colors.orange.shade100;
-      case 'Difícil':
-        return Colors.red.shade100;
-      default:
-        return Colors.grey.shade100;
-    }
   }
 } 
