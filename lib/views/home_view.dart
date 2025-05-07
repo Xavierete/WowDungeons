@@ -25,7 +25,7 @@ class HomeView extends StatelessWidget {
             crossAxisCount: 2,
             crossAxisSpacing: 16,
             mainAxisSpacing: 16,
-            childAspectRatio: 0.8,
+            childAspectRatio: 0.9, //Esto es para que las tarjetas sean más altas
           ),
           itemCount: viewModel.dungeons.length,
           itemBuilder: (context, index) {
@@ -46,7 +46,7 @@ class HomeView extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     Expanded(
-                      flex: 3,
+                      flex: 4,
                       child: ClipRRect(
                         borderRadius: const BorderRadius.vertical(
                           top: Radius.circular(10),
@@ -58,6 +58,7 @@ class HomeView extends StatelessWidget {
                       ),
                     ),
                     Expanded(
+                      flex: 2,
                       child: Container(
                         decoration: BoxDecoration(
                           color: theme.colorScheme.surface,
@@ -65,7 +66,10 @@ class HomeView extends StatelessWidget {
                             bottom: Radius.circular(10),
                           ),
                         ),
-                        padding: const EdgeInsets.all(8),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 8,
+                          vertical: 12,
+                        ),
                         child: Center(
                           child: Text(
                             dungeon.title,
@@ -73,6 +77,8 @@ class HomeView extends StatelessWidget {
                             style: theme.textTheme.bodyLarge?.copyWith(
                               fontWeight: FontWeight.bold,
                             ),
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
                           ),
                         ),
                       ),
