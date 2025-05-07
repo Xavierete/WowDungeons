@@ -115,7 +115,7 @@ class DetailView extends StatelessWidget {
       case 'Expansión':
         return Icons.extension;
       case 'Nivel':
-        return Icons.level;
+        return Icons.star;
       case 'Jugadores':
         return Icons.group;
       case 'Ubicación':
