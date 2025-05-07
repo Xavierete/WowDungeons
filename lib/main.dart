@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'viewmodels/dungeon_viewmodel.dart';
+import 'views/home_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -9,13 +12,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'WowDungeons',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
-        useMaterial3: true,
+    return ChangeNotifierProvider(
+      create: (context) => DungeonViewModel(),
+      child: MaterialApp(
+        title: 'WowDungeons',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+          useMaterial3: true,
+        ),
+        home: const HomeView(),
       ),
-      home: const MyHomePage(),
     );
   }
 }
@@ -183,9 +189,9 @@ class DetailPage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(20.0),
-          child: Column(
+      child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
+        children: [
               Text(
                 title,
                 style: const TextStyle(
@@ -194,7 +200,7 @@ class DetailPage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 20),
-              Text(
+          Text(
                 description,
                 style: const TextStyle(
                   fontSize: 18,
@@ -241,7 +247,7 @@ class DetailPage extends StatelessWidget {
                 'Jefes',
                 style: TextStyle(
                   fontSize: 24,
-                  fontWeight: FontWeight.bold,
+              fontWeight: FontWeight.bold,
                 ),
               ),
               const SizedBox(height: 10),
@@ -282,10 +288,10 @@ class DetailPage extends StatelessWidget {
                                   size: 50,
                                   color: Colors.grey.shade700,
                                 ),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
@@ -304,8 +310,8 @@ class DetailPage extends StatelessWidget {
                                     style: TextStyle(
                                       fontSize: 12,
                                       color: _getDifficultyColor(bosses[index]['difficulty']),
-                                    ),
-                                  ),
+              ),
+            ),
                                   const SizedBox(height: 4),
                                   Text(
                                     bosses[index]['mechanics'],
@@ -317,10 +323,10 @@ class DetailPage extends StatelessWidget {
                                     overflow: TextOverflow.ellipsis,
                                   ),
                                 ],
-                              ),
-                            ),
-                          ],
-                        ),
+            ),
+          ),
+        ],
+      ),
                       ),
                     );
                   },
@@ -329,7 +335,7 @@ class DetailPage extends StatelessWidget {
             ],
           ),
         ),
-      ),
+          ),
     );
   }
   
