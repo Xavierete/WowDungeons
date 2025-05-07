@@ -51,7 +51,7 @@
     },
     {
       "name": "flutter",
-      "rootUri": "file:///Users/marcfernandez/Documents/code/Dart/flutter/packages/flutter",
+      "rootUri": "file:///opt/homebrew/flutter/packages/flutter",
       "packageUri": "lib/",
       "languageVersion": "3.7"
     },
@@ -63,7 +63,7 @@
     },
     {
       "name": "flutter_test",
-      "rootUri": "file:///Users/marcfernandez/Documents/code/Dart/flutter/packages/flutter_test",
+      "rootUri": "file:///opt/homebrew/flutter/packages/flutter_test",
       "packageUri": "lib/",
       "languageVersion": "3.7"
     },
@@ -195,7 +195,7 @@
     },
     {
       "name": "sky_engine",
-      "rootUri": "file:///Users/marcfernandez/Documents/code/Dart/flutter/bin/cache/pkg/sky_engine",
+      "rootUri": "file:///opt/homebrew/flutter/bin/cache/pkg/sky_engine",
       "packageUri": "lib/",
       "languageVersion": "3.7"
     },
@@ -272,10 +272,10 @@
       "languageVersion": "3.7"
     }
   ],
-  "generated": "2025-05-07T20:19:36.657066Z",
+  "generated": "2025-05-07T20:20:13.423726Z",
   "generator": "pub",
   "generatorVersion": "3.7.2",
-  "flutterRoot": "file:///Users/marcfernandez/Documents/code/Dart/flutter",
-  "flutterVersion": "3.29.2",
+  "flutterRoot": "file:///opt/homebrew/flutter",
+  "flutterVersion": "3.29.3",
   "pubCache": "file:///Users/marcfernandez/.pub-cache"
 }

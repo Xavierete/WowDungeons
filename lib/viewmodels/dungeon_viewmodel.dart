@@ -32,7 +32,7 @@ class DungeonViewModel extends ChangeNotifier {
           ),
           Boss(
             name: 'Capitán de la Guardia Solakar',
-            image: 'lib/img/bossesimg/919264-warder-stilgiss.jpg',
+            image: 'lib/img/bossesimg/31595-capitan-de-la-guardia-cragtar.jpg',
             mechanics: 'Llamada de refuerzos, Escudo de fuego'
           ),
         ],
