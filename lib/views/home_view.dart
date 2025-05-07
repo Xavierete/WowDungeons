@@ -22,7 +22,7 @@ class HomeView extends StatelessWidget {
             crossAxisCount: 2,
             crossAxisSpacing: 16,
             mainAxisSpacing: 16,
-            childAspectRatio: 1.5,
+            childAspectRatio: 0.8,
           ),
           itemCount: dungeons.length,
           itemBuilder: (context, index) {
@@ -45,17 +45,39 @@ class HomeView extends StatelessWidget {
                     width: 2,
                   ),
                   borderRadius: BorderRadius.circular(12),
-                  color: Colors.blue.shade100,
                 ),
-                child: Center(
-                  child: Text(
-                    dungeon.title,
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Expanded(
+                      flex: 3,
+                      child: ClipRRect(
+                        borderRadius: const BorderRadius.vertical(
+                          top: Radius.circular(10),
+                        ),
+                        child: Image.asset(
+                          dungeon.image,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
                     ),
-                  ),
+                    Expanded(
+                      child: Container(
+                        color: Colors.blue.shade100,
+                        padding: const EdgeInsets.all(8),
+                        child: Center(
+                          child: Text(
+                            dungeon.title,
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             );

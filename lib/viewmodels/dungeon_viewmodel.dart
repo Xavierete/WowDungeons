@@ -18,6 +18,7 @@ class DungeonViewModel extends ChangeNotifier {
         expansion: 'Classic',
         level: '13-18',
         location: 'Orgrimmar',
+        image: 'lib/img/68555-sima-ignea.jpg',
         bosses: [
           Boss(
             name: 'Guardián Stilgiss',

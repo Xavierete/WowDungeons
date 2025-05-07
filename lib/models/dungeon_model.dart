@@ -4,6 +4,7 @@ class Dungeon {
   final String expansion;
   final String level;
   final String location;
+  final String image;
   final List<Boss> bosses;
 
   Dungeon({
@@ -12,6 +13,7 @@ class Dungeon {
     required this.expansion,
     required this.level,
     required this.location,
+    required this.image,
     required this.bosses,
   });
 }
