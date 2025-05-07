@@ -172,22 +172,22 @@ class DungeonViewModel extends ChangeNotifier {
         bosses: [
           Boss(
             name: 'Alto Inquisidor Whitemane',
-            image: 'boss11.jpg',
+            image: 'lib/img/bossesimg/937047-alta-inquisidora-melenablanca.jpg',
             mechanics: 'Resurrección, Sanación divina'
           ),
           Boss(
             name: 'Herod el Matón',
-            image: 'boss12.jpg',
+            image: 'lib/img/bossesimg/121369-herod.jpg',
             mechanics: 'Torbellino, Furia berserker'
           ),
           Boss(
             name: 'Arzobispo Benedictus',
-            image: 'boss13.jpg',
+            image: 'lib/img/bossesimg/954850-vancleef.jpg',
             mechanics: 'Bendición de protección, Llamada de cruzados'
           ),
           Boss(
             name: 'Interrogador Vishas',
-            image: 'boss14.jpg',
+            image: 'lib/img/bossesimg/76980-interrogador-vishas.jpg',
             mechanics: 'Tortura, Llamada de inquisidores'
           ),
         ],
