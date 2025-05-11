@@ -30,28 +30,6 @@ WowDungeons es una aplicación móvil desarrollada con Flutter que permite a los
 - **Provider**: Para la gestión de estado.
 - **Material Design**: Para la interfaz de usuario con personalización temática.
 
-## Instalación
-
-1. Clona este repositorio:
-   ```
-   git clone https://github.com/yourusername/WowDungeons.git
-   ```
-
-2. Navega al directorio del proyecto:
-   ```
-   cd WowDungeons
-   ```
-
-3. Instala las dependencias:
-   ```
-   flutter pub get
-   ```
-
-4. Ejecuta la aplicación:
-   ```
-   flutter run
-   ```
-
 ## Requisitos
 
 - Flutter 3.0.0 o superior
@@ -77,14 +55,3 @@ Las contribuciones son bienvenidas. Si deseas contribuir:
 2. Crea una nueva rama para tu función
 3. Envía un pull request
 
-## Licencia
-
-Este proyecto está licenciado bajo la Licencia MIT - ver el archivo LICENSE para más detalles.
-
-## Capturas de Pantalla
-
-[Aquí puedes incluir capturas de pantalla de la aplicación]
-
-## Contacto
-
-Para preguntas o sugerencias, contacta a [tu_email@example.com].
