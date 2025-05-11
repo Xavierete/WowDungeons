@@ -1,9 +1,13 @@
+// VISTA ALTERNATIVA: Pantalla de detalle de una mazmorra (versión alternativa)
+// Este archivo contiene una implementación alternativa de la vista de detalle
+// IMPORTANTE: Esta vista no se utiliza actualmente en la aplicación, pero se mantiene como referencia
 import 'package:flutter/material.dart';
 import '../models/dungeon_model.dart';
 import '../utils/ui_helpers.dart';
 
+// Clase principal de la vista de detalle alternativa
 class DungeonDetailView extends StatelessWidget {
-  final Dungeon dungeon;
+  final Dungeon dungeon; // Mazmorra a mostrar
 
   const DungeonDetailView({
     super.key,
@@ -16,12 +20,14 @@ class DungeonDetailView extends StatelessWidget {
       appBar: AppBar(
         title: Text(dungeon.title),
       ),
+      // IMPORTANTE: Estructura alternativa con estilo diferente al de DetailView
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(20.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              // Título de la mazmorra
               Text(
                 dungeon.title,
                 style: const TextStyle(
@@ -30,6 +36,7 @@ class DungeonDetailView extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 20),
+              // Descripción de la mazmorra
               Text(
                 dungeon.description,
                 style: const TextStyle(
@@ -37,6 +44,7 @@ class DungeonDetailView extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 30),
+              // Sección de información
               const Text(
                 'Información de la Mazmorra',
                 style: TextStyle(
@@ -45,6 +53,7 @@ class DungeonDetailView extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 10),
+              // Tarjetas con información básica (estilo alternativo)
               Card(
                 margin: const EdgeInsets.symmetric(vertical: 4),
                 child: ListTile(
@@ -88,6 +97,7 @@ class DungeonDetailView extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 30),
+              // Sección de jefes
               const Text(
                 'Jefes',
                 style: TextStyle(
@@ -96,7 +106,7 @@ class DungeonDetailView extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 10),
-              // Lista horizontal de jefes
+              // IMPORTANTE: Lista horizontal de jefes (estilo alternativo)
               SizedBox(
                 height: 180,
                 child: ListView.builder(
@@ -119,6 +129,7 @@ class DungeonDetailView extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
+                            // Imagen del jefe (versión simplificada)
                             Container(
                               height: 80,
                               decoration: BoxDecoration(
@@ -136,6 +147,7 @@ class DungeonDetailView extends StatelessWidget {
                                 ),
                               ),
                             ),
+                            // Información del jefe
                             Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Column(

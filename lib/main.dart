@@ -1,8 +1,11 @@
+// ARCHIVO PRINCIPAL: Punto de entrada de la aplicación
+// Este archivo configura el tema y la estructura básica de la app
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'viewmodels/dungeon_viewmodel.dart';
 import 'views/home_view.dart';
 
+// IMPORTANTE: Punto de entrada de la aplicación
 void main() {
   runApp(const MyApp());
 }
@@ -12,10 +15,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // IMPORTANTE: Configuración del Provider para gestión de estado
     return ChangeNotifierProvider(
       create: (context) => DungeonViewModel(),
       child: MaterialApp(
         title: 'WowDungeons',
+        // IMPORTANTE: Tema personalizado con estilo medieval/WoW
         theme: ThemeData(
           useMaterial3: true,
           colorScheme: ColorScheme.dark(
@@ -46,6 +51,7 @@ class MyApp extends StatelessWidget {
               ),
             ),
           ),
+          // IMPORTANTE: Configuración de fuentes con estilo medieval
           textTheme: const TextTheme(
             displayLarge: TextStyle(
               color: Color(0xFFC8A165),
@@ -85,6 +91,7 @@ class MyApp extends StatelessWidget {
             ),
           ),
         ),
+        // IMPORTANTE: Vista inicial de la aplicación
         home: const HomeView(),
       ),
     );

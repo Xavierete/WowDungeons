@@ -1,6 +1,9 @@
+// UTILIDADES UI: Funciones auxiliares para la interfaz de usuario
+// Este archivo contiene funciones de ayuda para elementos visuales reutilizables
 import 'package:flutter/material.dart';
 
-// Método para obtener el icono según la clave de información
+// IMPORTANTE: Método para obtener el icono según la clave de información
+// Centraliza la lógica de asignación de iconos para mantener consistencia en la UI
 IconData getIconForKey(String key) {
   switch (key) {
     case 'Expansión':
@@ -20,7 +23,8 @@ IconData getIconForKey(String key) {
   }
 }
 
-// Método para obtener el color según la dificultad
+// IMPORTANTE: Método para obtener el color según la dificultad
+// Permite mostrar visualmente el nivel de dificultad con colores intuitivos
 Color getDifficultyColor(String difficulty) {
   switch (difficulty) {
     case 'Fácil':

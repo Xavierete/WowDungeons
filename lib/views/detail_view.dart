@@ -1,10 +1,13 @@
+// VISTA: Pantalla de detalle de una mazmorra
+// Este archivo contiene la implementación de la pantalla que muestra los detalles de una mazmorra
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../viewmodels/dungeon_viewmodel.dart';
 import '../models/dungeon_model.dart';
 
+// IMPORTANTE: Clase principal de la vista de detalle
 class DetailView extends StatelessWidget {
-  final String title;
+  final String title; // Título de la mazmorra a mostrar
 
   const DetailView({
     super.key,
@@ -13,13 +16,16 @@ class DetailView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Acceso al viewmodel a través de Provider
     final viewModel = Provider.of<DungeonViewModel>(context);
     final theme = Theme.of(context);
     Dungeon dungeon;
     
+    // IMPORTANTE: Manejo de errores al buscar la mazmorra
     try {
       dungeon = viewModel.getDungeonByTitle(title);
     } catch (e) {
+      // Si no se encuentra la mazmorra, muestra una pantalla de error
       return Scaffold(
         appBar: AppBar(
           title: Text(
@@ -55,6 +61,7 @@ class DetailView extends StatelessWidget {
       );
     }
 
+    // IMPORTANTE: Estructura principal de la vista de detalle
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -68,6 +75,7 @@ class DetailView extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              // Imagen de la mazmorra
               ClipRRect(
                 borderRadius: BorderRadius.circular(12),
                 child: Image.asset(
@@ -78,21 +86,25 @@ class DetailView extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 20),
+              // Título de la mazmorra
               Text(
                 dungeon.title,
                 style: theme.textTheme.displayLarge,
               ),
               const SizedBox(height: 20),
+              // Descripción de la mazmorra
               Text(
                 dungeon.description,
                 style: theme.textTheme.bodyLarge,
               ),
               const SizedBox(height: 30),
+              // IMPORTANTE: Sección de información general
               Text(
                 'Información de la Mazmorra',
                 style: theme.textTheme.displayMedium,
               ),
               const SizedBox(height: 10),
+              // Tarjetas con información básica
               Card(
                 margin: const EdgeInsets.symmetric(vertical: 4),
                 child: ListTile(
@@ -145,11 +157,13 @@ class DetailView extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 30),
+              // IMPORTANTE: Sección de jefes de la mazmorra
               Text(
                 'Jefes',
                 style: theme.textTheme.displayMedium,
               ),
               const SizedBox(height: 10),
+              // Lista horizontal de jefes
               SizedBox(
                 height: 180,
                 child: ListView.builder(
@@ -172,6 +186,7 @@ class DetailView extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
+                            // Imagen del jefe con manejo de errores
                             Container(
                               height: 80,
                               decoration: BoxDecoration(
@@ -210,6 +225,7 @@ class DetailView extends StatelessWidget {
                                     ),
                               ),
                             ),
+                            // Información del jefe
                             Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Column(

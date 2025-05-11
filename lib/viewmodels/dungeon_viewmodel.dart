@@ -1,15 +1,23 @@
+// VIEWMODEL: Gestiona los datos y la lógica de negocio para las mazmorras
+// Este archivo contiene la lógica para cargar, gestionar y proporcionar datos de mazmorras a las vistas
 import 'package:flutter/material.dart';
 import '../models/dungeon_model.dart';
 
+// IMPORTANTE: Clase principal que gestiona el estado y los datos de las mazmorras
+// Extiende ChangeNotifier para poder notificar a las vistas cuando los datos cambian
 class DungeonViewModel extends ChangeNotifier {
-  List<Dungeon> _dungeons = [];
+  List<Dungeon> _dungeons = []; // Lista interna de mazmorras
   
+  // Getter para acceder a las mazmorras desde fuera
   List<Dungeon> get dungeons => _dungeons;
   
+  // Constructor que carga los datos iniciales
   DungeonViewModel() {
     _loadDungeons();
   }
   
+  // IMPORTANTE: Método que carga los datos de las mazmorras
+  // En una app real, estos datos podrían venir de una API o base de datos
   void _loadDungeons() {
     _dungeons = [
       Dungeon(
@@ -260,6 +268,8 @@ class DungeonViewModel extends ChangeNotifier {
     ];
   }
   
+  // IMPORTANTE: Método para buscar una mazmorra por su título
+  // Lanza una excepción si no encuentra la mazmorra
   Dungeon getDungeonByTitle(String title) {
     try {
       final dungeon = _dungeons.firstWhere(

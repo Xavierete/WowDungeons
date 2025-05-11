@@ -1,13 +1,17 @@
+// VISTA: Pantalla principal que muestra la lista de mazmorras
+// Este archivo contiene la implementación de la pantalla de inicio con el grid de mazmorras
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../viewmodels/dungeon_viewmodel.dart';
 import 'detail_view.dart';
 
+// IMPORTANTE: Clase principal de la vista de inicio
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
 
   @override
   Widget build(BuildContext context) {
+    // Acceso al viewmodel a través de Provider
     final viewModel = Provider.of<DungeonViewModel>(context);
     final theme = Theme.of(context);
 
@@ -18,6 +22,7 @@ class HomeView extends StatelessWidget {
           style: theme.textTheme.displayMedium,
         ),
       ),
+      // IMPORTANTE: Grid que muestra las mazmorras disponibles
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: GridView.builder(
@@ -30,6 +35,7 @@ class HomeView extends StatelessWidget {
           itemCount: viewModel.dungeons.length,
           itemBuilder: (context, index) {
             final dungeon = viewModel.dungeons[index];
+            // IMPORTANTE: Cada tarjeta es clickeable y navega al detalle
             return GestureDetector(
               onTap: () {
                 Navigator.push(
@@ -45,6 +51,7 @@ class HomeView extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
+                    // Imagen de la mazmorra
                     Expanded(
                       flex: 4,
                       child: ClipRRect(
@@ -57,6 +64,7 @@ class HomeView extends StatelessWidget {
                         ),
                       ),
                     ),
+                    // Título de la mazmorra
                     Expanded(
                       flex: 2,
                       child: Container(
