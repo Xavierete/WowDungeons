@@ -1,6 +1,5 @@
 # WowDungeons
 
-![Texto alternativo](logo.png "WowDungeons")
 Una aplicación Flutter para explorar información sobre las mazmorras clásicas de World of Warcraft.
 
 ## Descripción
@@ -36,10 +35,6 @@ WowDungeons es una aplicación móvil desarrollada con Flutter que permite a los
 - Flutter 3.0.0 o superior
 - Dart 2.17.0 o superior
 
-## Estado del Proyecto
-
-Este proyecto tiene implementada la funcionalidad básica para mostrar información sobre mazmorras clásicas de World of Warcraft. Los datos están almacenados localmente en la aplicación.
-
 ## Características Futuras
 
 - **Mazmorras de Expansiones Posteriores**: Añadir información de mazmorras de otras expansiones.
@@ -56,3 +51,4 @@ Las contribuciones son bienvenidas. Si deseas contribuir:
 2. Crea una nueva rama para tu función
 3. Envía un pull request
 
+![WowDungeons](logo.png "WowDungeons")
