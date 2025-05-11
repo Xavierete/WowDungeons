@@ -1,5 +1,6 @@
 # WowDungeons
 
+![Texto alternativo](ruta/al/logo.png "WowDungeons")
 Una aplicación Flutter para explorar información sobre las mazmorras clásicas de World of Warcraft.
 
 ## Descripción
